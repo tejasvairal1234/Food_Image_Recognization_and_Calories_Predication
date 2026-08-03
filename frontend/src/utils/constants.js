@@ -3,7 +3,7 @@
  */
 
 // API Base URL
-export const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
+export const API_URL = import.meta.env.VITE_API_URL || 'https://food-image-recognization-and-calories.onrender.com/api';
 
 // Local Storage Keys
 export const TOKEN_KEY = 'foodapp_token';
