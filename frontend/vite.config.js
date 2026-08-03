@@ -9,7 +9,7 @@ export default defineConfig({
         open: true,
         proxy: {
             '/api': {
-                target: 'http://localhost:5000',
+                target: 'https://food-image-recognization-and-calories.onrender.com',
                 changeOrigin: true,
                 secure: false
             }
