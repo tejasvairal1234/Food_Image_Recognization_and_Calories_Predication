@@ -1,0 +1,820 @@
+/* ============================================
+   NUTRISCAN AI - Modern Design System
+   Green/Orange Gradient + Glassmorphism Theme
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+/* ─── CSS Variables ─── */
+:root {
+  /* Green palette */
+  --green-50: #f0fdf4;
+  --green-100: #dcfce7;
+  --green-400: #4ade80;
+  --green-500: #22c55e;
+  --green-600: #16a34a;
+  --green-700: #15803d;
+
+  /* Orange palette */
+  --orange-400: #fb923c;
+  --orange-500: #f97316;
+  --orange-600: #ea580c;
+
+  /* Neutrals */
+  --white: #ffffff;
+  --gray-50: #f8fafc;
+  --gray-100: #f1f5f9;
+  --gray-200: #e2e8f0;
+  --gray-400: #94a3b8;
+  --gray-500: #64748b;
+  --gray-700: #334155;
+  --gray-900: #0f172a;
+
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, #16a34a 0%, #22c55e 40%, #f97316 100%);
+  --gradient-bg: linear-gradient(135deg, #e8f5e9 0%, #f0fdf4 30%, #fff7ed 70%, #fef3c7 100%);
+  --gradient-green: linear-gradient(135deg, #16a34a, #22c55e);
+  --gradient-orange: linear-gradient(135deg, #f97316, #fb923c);
+  --gradient-card: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7));
+
+  /* Glass */
+  --glass-bg: rgba(255, 255, 255, 0.72);
+  --glass-border: rgba(255, 255, 255, 0.9);
+  --glass-shadow: 0 8px 32px rgba(22, 163, 74, 0.12);
+  --glass-blur: blur(20px);
+
+  /* Border radius */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-full: 9999px;
+
+  /* Typography */
+  --font-main: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* ─── Reset & Base ─── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-main);
+  background: var(--gradient-bg);
+  background-attachment: fixed;
+  min-height: 100vh;
+  color: var(--gray-700);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ─── Typography ─── */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-main);
+  font-weight: 700;
+  color: var(--gray-900);
+  line-height: 1.3;
+}
+
+/* ─── Glassmorphism Card ─── */
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1.5px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--glass-shadow);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.glass-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 48px rgba(22, 163, 74, 0.18);
+}
+
+/* Override Bootstrap card to glass style */
+.card {
+  background: var(--glass-bg) !important;
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1.5px solid var(--glass-border) !important;
+  border-radius: var(--radius-lg) !important;
+  box-shadow: var(--glass-shadow) !important;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 48px rgba(22, 163, 74, 0.16) !important;
+}
+
+/* ─── Buttons ─── */
+.btn-primary,
+.btn-primary:focus,
+.btn-primary:active {
+  background: var(--gradient-green) !important;
+  border: none !important;
+  border-radius: var(--radius-full) !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.02em;
+  padding: 0.55rem 1.5rem !important;
+  box-shadow: 0 4px 16px rgba(22, 163, 74, 0.35) !important;
+  color: #fff !important;
+  transition: all 0.2s ease !important;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 24px rgba(22, 163, 74, 0.45) !important;
+  filter: brightness(1.05);
+}
+
+.btn-outline-primary {
+  border-color: var(--green-500) !important;
+  color: var(--green-600) !important;
+  border-radius: var(--radius-full) !important;
+  font-weight: 600 !important;
+  padding: 0.55rem 1.5rem !important;
+  background: transparent !important;
+  transition: all 0.2s ease !important;
+}
+
+.btn-outline-primary:hover {
+  background: var(--green-50) !important;
+  border-color: var(--green-600) !important;
+  transform: translateY(-2px) !important;
+}
+
+.btn-outline-danger {
+  border-radius: var(--radius-full) !important;
+  font-weight: 600 !important;
+  transition: all 0.2s ease !important;
+}
+
+.btn-outline-danger:hover {
+  transform: translateY(-2px) !important;
+}
+
+.btn-outline-light,
+.btn-outline-dark {
+  border-radius: var(--radius-full) !important;
+  font-weight: 500 !important;
+  transition: all 0.2s ease !important;
+}
+
+/* ─── Form Inputs ─── */
+.form-control {
+  border-radius: var(--radius-md) !important;
+  border: 1.5px solid var(--gray-200) !important;
+  padding: 0.65rem 1rem !important;
+  font-family: var(--font-main) !important;
+  background: rgba(255, 255, 255, 0.85) !important;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+.form-control:focus {
+  border-color: var(--green-400) !important;
+  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.18) !important;
+  background: #fff !important;
+  outline: none !important;
+}
+
+.form-label {
+  font-weight: 600 !important;
+  color: var(--gray-700) !important;
+  font-size: 0.875rem !important;
+  margin-bottom: 0.4rem !important;
+}
+
+/* ─── Bootstrap Tabs ─── */
+.nav-tabs {
+  border-bottom: 2px solid var(--gray-200) !important;
+  gap: 4px;
+}
+
+.nav-tabs .nav-link {
+  border: none !important;
+  border-radius: var(--radius-md) var(--radius-md) 0 0 !important;
+  font-weight: 600 !important;
+  color: var(--gray-500) !important;
+  padding: 0.6rem 1.2rem !important;
+  transition: all 0.2s ease !important;
+}
+
+.nav-tabs .nav-link:hover {
+  color: var(--green-600) !important;
+  background: var(--green-50) !important;
+}
+
+.nav-tabs .nav-link.active {
+  color: var(--green-600) !important;
+  background: var(--green-50) !important;
+  border-bottom: 2px solid var(--green-500) !important;
+}
+
+/* ─── Alert ─── */
+.alert {
+  border-radius: var(--radius-md) !important;
+  border: none !important;
+  font-weight: 500 !important;
+}
+
+.alert-danger {
+  background: rgba(239, 68, 68, 0.1) !important;
+  color: #dc2626 !important;
+}
+
+/* ─── Gradient Text ─── */
+.gradient-text {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── Badge ─── */
+.badge {
+  border-radius: var(--radius-full) !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.03em;
+}
+
+/* ─── Nutrition Stat Card ─── */
+.nutrition-stat {
+  background: rgba(255, 255, 255, 0.9) !important;
+  border-radius: var(--radius-md) !important;
+  padding: 1rem !important;
+  border: 1.5px solid var(--gray-100) !important;
+  transition: transform 0.2s ease !important;
+}
+
+.nutrition-stat:hover {
+  transform: scale(1.04) !important;
+}
+
+/* ─── Upload Zone ─── */
+.upload-zone {
+  border: 2.5px dashed var(--green-400);
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  padding: 3rem 1.5rem;
+  background: rgba(240, 253, 244, 0.6);
+  transition: all 0.25s ease;
+  text-align: center;
+}
+
+.upload-zone:hover {
+  background: rgba(220, 252, 231, 0.8);
+  border-color: var(--green-600);
+  box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.12);
+}
+
+/* ─── Custom Range Slider ─── */
+.form-range {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 6px;
+  border-radius: var(--radius-full);
+  background: linear-gradient(to right, var(--green-500) 0%, var(--orange-400) 100%);
+}
+
+.form-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--gradient-green);
+  cursor: pointer;
+  border: 3px solid #fff;
+  box-shadow: 0 2px 8px rgba(22, 163, 74, 0.4);
+  transition: transform 0.15s ease;
+}
+
+.form-range::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+}
+
+.form-range::-moz-range-thumb {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--gradient-green);
+  cursor: pointer;
+  border: 3px solid #fff;
+  box-shadow: 0 2px 8px rgba(22, 163, 74, 0.4);
+}
+
+/* ─── Navbar Overrides ─── */
+.app-navbar {
+  background: rgba(255, 255, 255, 0.82) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border-bottom: 1.5px solid rgba(255, 255, 255, 0.95) !important;
+  box-shadow: 0 2px 20px rgba(22, 163, 74, 0.10) !important;
+  position: sticky !important;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar-brand-text {
+  background: var(--gradient-green);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 800 !important;
+  font-size: 1.3rem !important;
+}
+
+.nav-link-custom {
+  color: var(--gray-700) !important;
+  font-weight: 500 !important;
+  padding: 0.4rem 0.8rem !important;
+  border-radius: var(--radius-sm) !important;
+  transition: all 0.2s ease !important;
+  text-decoration: none !important;
+}
+
+.nav-link-custom:hover {
+  color: var(--green-600) !important;
+  background: var(--green-50) !important;
+}
+
+/* ─── Footer ─── */
+.app-footer {
+  background: linear-gradient(135deg, #15803d, #166534) !important;
+  color: rgba(255, 255, 255, 0.9) !important;
+  border-top: none !important;
+  padding: 2rem 0 !important;
+}
+
+/* ─── Page Wrapper ─── */
+.page-wrapper {
+  min-height: calc(100vh - 130px);
+  padding: 2rem 0;
+}
+
+/* ─── Hero Section ─── */
+.hero-section {
+  text-align: center;
+  padding: 2.5rem 0 2rem;
+  margin-bottom: 2rem;
+}
+
+.hero-title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 800;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 0.75rem;
+}
+
+.hero-subtitle {
+  font-size: 1.1rem;
+  color: var(--gray-500);
+  font-weight: 400;
+  max-width: 520px;
+  margin: 0 auto 1.5rem;
+}
+
+.hero-pills {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.hero-pill {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1.5px solid var(--gray-200);
+  border-radius: var(--radius-full);
+  padding: 0.35rem 1rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--gray-700);
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+/* ─── Auth Pages ─── */
+.auth-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 2rem 1rem;
+}
+
+.auth-card {
+  background: rgba(255, 255, 255, 0.88) !important;
+  backdrop-filter: blur(24px) !important;
+  -webkit-backdrop-filter: blur(24px) !important;
+  border-radius: var(--radius-xl) !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.95) !important;
+  box-shadow: 0 20px 60px rgba(22, 163, 74, 0.15) !important;
+  padding: 2.5rem !important;
+}
+
+.auth-logo {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.auth-title {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--gray-900);
+}
+
+.auth-subtitle {
+  color: var(--gray-400);
+  font-size: 0.95rem;
+}
+
+/* ─── Portion Badge ─── */
+.portion-badge {
+  background: var(--gradient-green);
+  color: #fff;
+  border-radius: var(--radius-full);
+  padding: 0.35rem 1.2rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  display: inline-block;
+}
+
+/* ─── AI Card accent ─── */
+.ai-card-accent {
+  border-left: 4px solid transparent !important;
+  border-image: var(--gradient-primary) 1 !important;
+}
+
+/* ─── History Cards ─── */
+.history-stat {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.3rem 0;
+  border-bottom: 1px solid var(--gray-100);
+  font-size: 0.9rem;
+}
+
+.history-stat:last-child {
+  border-bottom: none;
+}
+
+/* ─── Spinner ─── */
+.spinner-border {
+  color: var(--green-500) !important;
+}
+
+/* ─── Scrollbar ─── */
+/* Using default browser scrollbar */
+
+/* ─── Animations ─── */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse-green {
+
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.35);
+  }
+
+  50% {
+    box-shadow: 0 0 0 8px rgba(34, 197, 94, 0);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.4s ease both;
+}
+
+.pulse-green {
+  animation: pulse-green 2s infinite;
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 1.8rem;
+  }
+
+  .hero-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .auth-card {
+    padding: 1.5rem !important;
+    border-radius: var(--radius-lg) !important;
+  }
+
+  .card {
+    border-radius: var(--radius-md) !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-pills {
+    gap: 0.4rem;
+  }
+
+  .hero-pill {
+    font-size: 0.75rem;
+    padding: 0.28rem 0.8rem;
+  }
+}
+
+/* ─── Home page section helpers ─── */
+.home-about {
+  background: #fff;
+  padding: 4rem 0;
+}
+
+.home-howitworks {
+  background: var(--gradient-bg);
+  padding: 4rem 0;
+}
+
+
+/* ============================================
+   DARK MODE
+   Activated by body.dark-mode class
+   ============================================ */
+
+body.dark-mode {
+  --gradient-bg: linear-gradient(135deg, #0d1f12 0%, #0f172a 40%, #1a1505 100%);
+  --glass-bg: rgba(15, 23, 42, 0.82);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  --gray-500: #94a3b8;
+  --gray-700: #cbd5e1;
+  --gray-900: #f1f5f9;
+
+  background: var(--gradient-bg);
+  color: #cbd5e1;
+}
+
+/* Dark: headings */
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode h5,
+body.dark-mode h6 {
+  color: #f1f5f9;
+}
+
+/* Dark: glass / bootstrap cards */
+body.dark-mode .card,
+body.dark-mode .glass-card {
+  background: rgba(17, 28, 44, 0.88) !important;
+  border-color: rgba(255, 255, 255, 0.07) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45) !important;
+}
+
+body.dark-mode .card-body,
+body.dark-mode .card-header {
+  background: transparent !important;
+}
+
+/* Dark: form inputs */
+body.dark-mode .form-control {
+  background: rgba(30, 41, 59, 0.9) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+  color: #e2e8f0 !important;
+}
+
+body.dark-mode .form-control:focus {
+  background: rgba(30, 41, 59, 1) !important;
+  border-color: var(--green-400) !important;
+  color: #f1f5f9 !important;
+}
+
+body.dark-mode .form-control::placeholder {
+  color: #64748b !important;
+}
+
+body.dark-mode .form-label {
+  color: #94a3b8 !important;
+}
+
+/* Dark: navbar */
+body.dark-mode .app-navbar {
+  background: rgba(10, 18, 28, 0.92) !important;
+  border-bottom-color: rgba(255, 255, 255, 0.06) !important;
+}
+
+body.dark-mode .nav-link-custom {
+  color: #94a3b8 !important;
+}
+
+body.dark-mode .nav-link-custom:hover {
+  color: var(--green-400) !important;
+}
+
+/* Dark: navbar user chip and login button */
+body.dark-mode nav [style*="rgba(240,253,244"] {
+  background: rgba(22, 163, 74, 0.15) !important;
+  border-color: rgba(22, 163, 74, 0.3) !important;
+}
+
+/* Dark: theme toggle button */
+body.dark-mode nav button[style*="rgba(255,255,255,0.7)"] {
+  background: rgba(30, 41, 59, 0.8) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+  color: #94a3b8 !important;
+}
+
+/* Dark: login link button in navbar */
+body.dark-mode nav a[style*="rgba(255,255,255,0.85)"] {
+  background: rgba(30, 41, 59, 0.8) !important;
+  border-color: rgba(22, 163, 74, 0.3) !important;
+}
+
+/* Dark: tabs */
+body.dark-mode .nav-tabs {
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+body.dark-mode .nav-tabs .nav-link {
+  color: #94a3b8 !important;
+}
+
+body.dark-mode .nav-tabs .nav-link.active {
+  background: rgba(22, 163, 74, 0.15) !important;
+  color: var(--green-400) !important;
+  border-color: rgba(255, 255, 255, 0.08) rgba(255, 255, 255, 0.08) transparent !important;
+}
+
+/* Dark: upload zone */
+body.dark-mode .upload-zone {
+  background: rgba(22, 163, 74, 0.05) !important;
+  border-color: rgba(22, 163, 74, 0.25) !important;
+}
+
+body.dark-mode .upload-zone:hover {
+  background: rgba(22, 163, 74, 0.10) !important;
+}
+
+/* Dark: nutrition stat cards */
+body.dark-mode .nutrition-stat {
+  background: rgba(30, 41, 59, 0.85) !important;
+  border-color: rgba(255, 255, 255, 0.06) !important;
+}
+
+/* Dark: nutrition stat label text */
+body.dark-mode .nutrition-stat span {
+  color: #94a3b8 !important;
+}
+
+/* Dark: keep numeric value colour (overrides the span rule above for the value div) */
+body.dark-mode .nutrition-stat > div:last-child {
+  color: inherit !important;
+}
+
+/* Dark: history stat rows */
+body.dark-mode .history-stat {
+  background: rgba(30, 41, 59, 0.5) !important;
+  border-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+/* Dark: history stat label text */
+body.dark-mode .history-stat span:first-child {
+  color: #94a3b8 !important;
+}
+
+/* Dark: calorie highlight box inside history cards */
+body.dark-mode .card [style*="linear-gradient(135deg,#f0fdf4"] {
+  background: rgba(22, 163, 74, 0.12) !important;
+}
+
+/* Dark: alerts */
+body.dark-mode .alert-danger {
+  background: rgba(220, 38, 38, 0.15) !important;
+  border-color: rgba(220, 38, 38, 0.3) !important;
+  color: #fca5a5 !important;
+}
+
+/* Dark: badges */
+body.dark-mode .badge.bg-secondary {
+  background: rgba(100, 116, 139, 0.4) !important;
+}
+
+/* Dark: page wrapper */
+body.dark-mode .page-wrapper {
+  background: transparent !important;
+}
+
+/* Dark: auth page */
+body.dark-mode .auth-page {
+  background: linear-gradient(135deg, #0d1f12 0%, #0f172a 60%, #1a1505 100%) !important;
+}
+
+body.dark-mode .auth-card {
+  background: rgba(17, 28, 44, 0.92) !important;
+  border-color: rgba(255, 255, 255, 0.07) !important;
+}
+
+/* Dark: About / How It Works sections on home page */
+body.dark-mode div[style*="background: '#fff'"],
+body.dark-mode div[style*='background: "#fff"'] {
+  background: #0f172a !important;
+}
+
+/* Dark: general white backgrounds */
+body.dark-mode .bg-white,
+body.dark-mode .bg-light {
+  background: rgba(17, 28, 44, 0.8) !important;
+}
+
+/* Dark: text muted */
+body.dark-mode .text-muted {
+  color: #64748b !important;
+}
+
+/* Dark: borders */
+body.dark-mode .border,
+body.dark-mode .border-top,
+body.dark-mode .border-bottom {
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* Dark: home page sections */
+body.dark-mode .home-about {
+  background: #0d1a26 !important;
+}
+
+body.dark-mode .home-howitworks {
+  background: linear-gradient(135deg, #0d1f12 0%, #0f172a 60%, #1a1505 100%) !important;
+}
+
+body.dark-mode .home-about p,
+body.dark-mode .home-howitworks p {
+  color: #94a3b8 !important;
+}
+
+body.dark-mode .home-about h2,
+body.dark-mode .home-howitworks h2 {
+  color: #f1f5f9 !important;
+}
+
+/* Dark: scrollbar - using default browser scrollbar */
+
+/* Dark: feature chips (Prediction page header, History entries badge, Portion badge chip) */
+body.dark-mode span[style*="rgba(240,253,244"],
+body.dark-mode span[style*="rgba(240, 253, 244"] {
+  background: rgba(22, 163, 74, 0.15) !important;
+  border-color: rgba(22, 163, 74, 0.3) !important;
+  color: #4ade80 !important;
+}
+
+/* Dark: range slider unselected track (grey portion) */
+body.dark-mode .form-range {
+  background: linear-gradient(to right, var(--green-500) 0%, #334155 100%) !important;
+}
+
+/* Dark: glass-card body text inherits correctly */
+body.dark-mode .glass-card,
+body.dark-mode .glass-card p {
+  color: #cbd5e1;
+}
+
+/* Dark: "Analyze Another Food" button border */
+body.dark-mode button[style*="border: '1.5px solid #e2e8f0'"],
+body.dark-mode button[style*='border: "1.5px solid #e2e8f0"'] {
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Dark: auth-title and auth-subtitle */
+body.dark-mode .auth-title {
+  color: #f1f5f9 !important;
+}
+
+body.dark-mode .auth-subtitle {
+  color: #94a3b8 !important;
+}
