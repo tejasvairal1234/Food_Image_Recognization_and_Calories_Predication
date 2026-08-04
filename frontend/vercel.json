@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/:path*",
+      "destination": "https://food-image-recognization-and-calories.onrender.com/api/:path*"
+    }
+  ]
+}
